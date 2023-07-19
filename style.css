@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;800&family=Kumbh+Sans:wght@100;400;700&family=Roboto+Mono:wght@200;400&family=Roboto:wght@400;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Kumbh Sans', sans-serif;
+    background-color: hsl(0, 0%, 100%);
+}
+
+
+.mobile-navbar{
+    display: none;
+}
+
+
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    margin-top: 60px;
+    border-bottom: 1px solid hsl(220, 14%, 75%);
+}
+
+
+.nav-items{
+    display: flex; 
+    margin-bottom: 40px;
+}
+
+.logo{
+    margin-right: 40px;
+}
+
+.cart-avatar{
+    display: flex;
+}
+
+.avatar{
+    margin-top: -10px;
+}
+
+.cart-avatar img{
+    margin-left: 30px;
+}
+
+.nav-items a{
+    text-decoration: none;
+    color: hsl(220, 14%, 75%);
+    margin-left: 20px;
+    font-weight: 700;
+    position: relative;
+}
+
+.nav-items a:after{
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    left: 0;
+    background-color: hsl(26, 100%, 55%);
+    transition: 0.5s;
+    top: 57px;
+}
+
+.nav-items a:hover:after{
+    width: 100%;
+}
+
+.nav-items a:hover{
+    color: hsl(219, 9%, 45%);
+}
+
+.b-im{
+    border-radius: 15px;
+}
+.s-im{
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.main-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 80%;
+    height: 100vh;
+    margin: auto;
+    grid-template-areas: "images details";
+    margin-top: 50px;
+}
+
+.images-thumnails-container{
+    grid-area: images;
+}
+.details-container{
+    grid-area: details;
+    padding: 20px;
+}
+
+.orange-heading{
+    color: hsl(26, 100%, 55%);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h1{
+    margin-bottom: 30px;
+}
+
+.price-details{
+    display: flex;
+    width: 150px;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+
+.fifty{
+    color: hsl(26, 100%, 55%);
+    padding: 5px;
+    background-color: hsl(25, 100%, 94%);
+    border-radius: 5px;
+    width: max-content;
+    font-weight: 700;
+}
+
+.through-line{
+    color: hsl(220, 14%, 75%);
+    text-decoration: line-through;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.plus{
+    color: hsl(26, 100%, 55%);
+    font-weight: 900;
+    font-size: large;
+    border: none;
+    background-color: transparent;
+    cursor: pointer; 
+    margin-right: 25px;
+}
+
+.minus{
+    color: hsl(26, 100%, 55%);
+    font-weight: 900;
+    font-size: large;
+    border: none;
+    background-color: transparent; 
+    cursor: pointer;
+    margin-left: 25px;
+}
+
+.plus-minus-btns{
+    background-color: hsl(0, 0%, 97%);
+    padding: 5px;
+    width: max-content;
+    border: 10px;
+}
+
+.add-btn{
+    background-color: hsl(26, 100%, 55%);
+    color: hsl(0, 0%, 100%);
+    border: none;
+    padding: 10px 35px;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+
+.btns-container{
+    display: flex;
+}
+
+p{
+    color: hsl(219, 9%, 45%);
+}
+
+.smaller-images{
+    margin-top: 20px;
+}
+
+.images-for-mobile{
+    display: none;
+}
+
+@media screen and (max-width:480px){
+    nav{
+        display: none;
+    }
+
+    .mobile-navbar{
+        display: flex;
+        width: 90%;
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+
+    .icon-logo img{
+        margin-left: 20px;
+    }
+    .mobile-avatar img{
+        margin-left: 20px;
+    }
+
+    .smaller-images{
+        display: none;
+    }
+    .big-image{
+        display: none;
+    }
+
+    .images-for-mobile{
+        display: block;
+        position: relative;
+    }
+
+    .forward-backward-btns{
+        position: absolute;
+        top: 180px;
+        display: flex;
+        width: 90%;
+        justify-content: space-between;
+        margin-left: 25px;
+
+    }
+
+    .forward-backward-btns img{
+        background-color: hsl(0, 0%, 100%);
+        padding: 20px;
+        border-radius: 100%;
+        cursor: pointer;
+    }
+
+
+    .main-container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .plus-minus-btns{
+        background-color: hsl(0, 0%, 97%);
+        padding: 5px;
+        width: 90%;
+        padding-left: 40%;
+    }
+    
+    .add-btn{
+        border-radius: 10px;
+        width: 90%;
+        margin-top: 10px;
+    }
+    
+    .btns-container{
+        display: flex;
+        flex-direction: column;
+    }
+    
+
+}
