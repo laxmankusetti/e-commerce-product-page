@@ -46,7 +46,13 @@ nav{
 }
 
 .cart-avatar img{
-    margin-left: 30px;
+    margin-left: 30px; 
+    cursor: pointer;
+}
+
+.avatar:hover{
+    border: 2px solid hsl(26, 100%, 55%);
+    border-radius: 100%;
 }
 
 .nav-items a{
@@ -82,6 +88,14 @@ nav{
 .s-im{
     border-radius: 10px;
     margin-right: 20px;
+}
+.s-im:hover{
+    opacity: 0.8;
+}
+.selected{
+    opacity: 0.7;
+    border: 2px solid hsl(26, 100%, 55%);
+    border-radius: 10px;
 }
 
 .main-container{
@@ -141,7 +155,8 @@ h1{
     font-weight: 900;
     font-size: large;
     border: none;
-    background-color: transparent;
+    width: 40px;
+    height: 40px;
     cursor: pointer; 
     margin-right: 25px;
 }
@@ -151,14 +166,20 @@ h1{
     font-weight: 900;
     font-size: large;
     border: none;
-    background-color: transparent; 
+    width: 40px;
+    height: 40px;
     cursor: pointer;
     margin-left: 25px;
 }
 
+.minus:hover, .plus:hover{
+    border-radius: 50%;
+    background-color: hsl(0, 0%, 90%);
+}
+
 .plus-minus-btns{
     background-color: hsl(0, 0%, 97%);
-    padding: 5px;
+    padding: 5px 25px;
     width: max-content;
     border: 10px;
 }
@@ -167,9 +188,10 @@ h1{
     background-color: hsl(26, 100%, 55%);
     color: hsl(0, 0%, 100%);
     border: none;
-    padding: 10px 35px;
+    padding: 10px 55px;
     border-radius: 10px;
     margin-left: 20px;
+    margin-top: 5px;
 }
 
 .btns-container{
@@ -186,6 +208,78 @@ p{
 
 .images-for-mobile{
     display: none;
+}
+
+.cart-avatar div{
+    display: flex;
+}
+
+.cart-count{
+    width: 20px;
+    height: 20px;
+    background-color: hsl(26, 100%, 55%);
+    color: hsl(0, 0%, 100%);
+    font-size: 0.8em;
+    border-radius: 50%;
+    padding-left: 6px;
+    padding-top: 2px;
+    display: none;
+    
+}
+
+.mob-menu{
+    display: none;
+}
+
+#cart-icon .cart-container{
+    width: 200px;
+    height: 250px;
+    border-radius: 5px;
+    background-color: orange;
+    color: white;
+    display: none;
+}
+
+.mobile-menu-items{
+    display: flex;
+    width: 65vw;
+    height: 100vh;
+    background-color: hsl(26, 100%, 55%);
+    padding: 15px;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    transition: 0.5s ease-in-out;
+}
+
+.mobile-menu-items.closed{
+    left: -65vw;
+}
+
+.mobile-menu-items div{
+    margin-top: 25px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-menu-items div a{
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 2em;
+    margin-top: 20px;
+}
+
+.mobile-menu-items .close-menu{
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    background-color: white;
+    border-radius: 50%;
+    margin-left: 80%;
 }
 
 @media screen and (max-width:480px){
@@ -245,10 +339,12 @@ p{
     }
 
     .plus-minus-btns{
-        background-color: hsl(0, 0%, 97%);
-        padding: 5px;
-        width: 90%;
-        padding-left: 40%;
+        background-color: hsl(0, 0%, 95%);
+        width: 100%;
+        margin: 0 auto;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
     }
     
     .add-btn{
@@ -261,6 +357,27 @@ p{
         display: flex;
         flex-direction: column;
     }
-    
 
+    .btns-container .add-btn{
+        height: 45px;
+        font-size: 20px;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 15px;
+        font-weight: 600;
+    }
+
+    .plus-minus-btns .plus, .plus-minus-btns .minus{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: orange;
+        color: white;
+        font-size: 25px;
+    }
+
+    .plus-minus-btns .count{
+        font-size: 25px;
+        margin-top: 10px;
+    }
 }

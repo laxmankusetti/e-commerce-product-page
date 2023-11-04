@@ -9,12 +9,22 @@
   <title>E-commerce product page</title>
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+  <script src="./script.js" defer></script>
 </head>
 
 <body>
 
   <header>
+    <div class="mobile-menu-items closed">
+      <img src="./images/icon-close.svg" alt="cross-icon" height="20px" class="close-menu" />
+      <div>
+        <a href="/">Collections</a>
+        <a href="/">Men</a>
+        <a href="/">Women</a>
+        <a href="/">About</a>
+        <a href="/">Contact</a>
+      </div>
+    </div>
     <nav>
       <div class="nav-items">
         <img src="./images/logo.svg" alt="brand-logo" height="20px" class="logo">
@@ -27,14 +37,17 @@
       </div>
 
       <div class="cart-avatar">
-        <img src="./images/icon-cart.svg" alt="cart-icon" width="20px" height="20px">
+        <div id="cart-icon">
+          <img src="./images/icon-cart.svg" alt="cart-icon" width="20px" height="20px">
+          <span class="cart-count"></span>
+        </div>
         <img src="./images/image-avatar.png" alt="avatar" width="45px" height="45px" class="avatar">
       </div>
     </nav>
 
     <div class="mobile-navbar">
       <div class="icon-logo">
-        <img src="./images/icon-menu.svg" alt="menu-icon">
+        <img src="./images/icon-menu.svg" alt="menu-icon" id="open-mobile-menu" onclick="handleMobMenu()">
         <img src="./images/logo.svg" alt="brand-logo" height="20px">
       </div>
       <div class="mobile-avatar">
@@ -42,26 +55,25 @@
         <img src="./images/image-avatar.png" alt="avatar" width="30px" height="30px">
       </div>
     </div>
-
   </header>
 
   <main>
     <div class="main-container">
       <div class="images-thumnails-container">
         <div class="big-image">
-          <img src="./images/image-product-1.jpg" alt="image1-big" width="400px" height="400px" class="b-im">
+          <img src="./images/image-product-1.jpg" alt="image1-big" width="400px" height="400px" class="b-im" id="big-image">
         </div>
         <div class="smaller-images">
-          <img src="./images/image-product-1-thumbnail.jpg" alt="product1-thumbnail" width="80px" height="80px" class="s-im">
-          <img src="./images/image-product-2-thumbnail.jpg" alt="product2-thumbnail" width="80px" height="80px" class="s-im">
-          <img src="./images/image-product-3-thumbnail.jpg" alt="product3-thumbnail" width="80px" height="80px" class="s-im">
-          <img src="./images/image-product-4-thumbnail.jpg" alt="product4-thumbnail" width="80px" height="80px" class="s-im">
+          <img src="./images/image-product-1-thumbnail.jpg" alt="product1-thumbnail" width="80px" height="80px" class="s-im" onclick="swapImage('./images/image-product-1.jpg', 'big image 1')">
+          <img src="./images/image-product-2-thumbnail.jpg" alt="product2-thumbnail" width="80px" height="80px" class="s-im" onclick="swapImage('./images/image-product-2.jpg', 'big image 2')">
+          <img src="./images/image-product-3-thumbnail.jpg" alt="product3-thumbnail" width="80px" height="80px" class="s-im" onclick="swapImage('./images/image-product-3.jpg', 'big image 3')">
+          <img src="./images/image-product-4-thumbnail.jpg" alt="product4-thumbnail" width="80px" height="80px" class="s-im" onclick="swapImage('./images/image-product-4.jpg', 'big image 4')">
         </div> 
         <div class="images-for-mobile">
-          <img src="./images/image-product-1.jpg" alt="product for mobile device" width="100%">
+          <img src="./images/image-product-1.jpg" alt="product for mobile device" width="100%" id="mobileImage">
           <div class="forward-backward-btns">
-            <img src="./images/icon-previous.svg" alt="previous icon">
-            <img src="./images/icon-next.svg" alt="next icon">
+            <img src="./images/icon-previous.svg" alt="previous icon" id="backward">
+            <img src="./images/icon-next.svg" alt="next icon" id="forward">
           </div>
         </div>
       </div>
@@ -80,12 +92,12 @@
         <h4 class="through-line">$250</h4>
         <div class="btns-container">
           <div class="plus-minus-btns">
-            <button class="plus">+</button>
+            <button class="plus" onclick="itemsIncrease()">+</button>
             <span class="count">0</span>
-            <button class="minus">-</button>
+            <button class="minus" onclick="itemsDecrease()">-</button>
           </div>
           <div class="add-cart-btn">
-            <button class="add-btn"><img src="./images/icon-cart.svg" alt="cart-icon" width="15px"> Add to cart</button>
+            <button class="add-btn" onclick="cartCount()"><img src="./images/icon-cart.svg" alt="cart-icon" width="15px"> Add to cart</button>
           </div>
         </div>
       </div>
