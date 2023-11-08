@@ -79,3 +79,30 @@ function handleMobMenu(){
 document.querySelector('.close-menu').onclick = function(){
     document.querySelector('.mobile-menu-items').classList.add('closed')
 }
+
+let lightBoxProductImage = document.getElementById('light-box-product-image')
+bigImage.onclick = function(e){
+    document.querySelector('.light-box-container').classList.add('open')
+    lightBoxProductImage.src = e.target.src
+}
+
+document.getElementById('light-box-close').onclick = function(){
+    document.querySelector('.light-box-container').classList.remove('open')
+}
+
+let prev = document.querySelector('.prev')
+let next = document.querySelector('.next')
+
+function handleLightBoxImage(direction){
+    currentCount += direction
+    if(currentCount < 0){
+        currentCount = images.length-1
+    }else if(currentCount > images.length-1){
+        currentCount = 0
+    }
+
+    lightBoxProductImage.src = images[currentCount]
+}
+
+prev.addEventListener('click', function(){handleLightBoxImage(-1)})
+next.addEventListener('click', function(){handleLightBoxImage(1)})
